@@ -24,9 +24,7 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 // Middleware to parse JSON bodies
 app.use(express.json());
 // Catch-all route to serve the React app's index.html for any other route
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'));
-});
+
 
 
 const PORT = process.env.PORT || 5000;
@@ -41,6 +39,10 @@ app.get('/', (req, res) => {
 
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
+
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'));
+});
 
 
 app.listen(PORT, () => {
