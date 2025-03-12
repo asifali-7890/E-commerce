@@ -1,0 +1,30 @@
+
+
+# Ignore node_modules
+node_modules/
+
+# Ignore root .env
+.env
+
+# Ignore .env inside client
+client/.env
+
+# Ignore .env inside server
+server/.env
+
+client/node_modules
+
+server/node_modules
+# Ignore build outputs (optional, if you have any)
+client/dist/
+build/
+
+# Ignore log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore system files
+.DS_Store
+Thumbs.db
