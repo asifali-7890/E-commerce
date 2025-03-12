@@ -22,6 +22,9 @@ export const addProduct = async (req, res) => {
 export const listProducts = async (req, res) => {
     try {
         const products = await Product.find({});
+        res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+        res.set('Pragma', 'no-cache');
+        res.set('Expires', '0');
         res.status(200).json(products);
     } catch (error) {
         res.status(400).json({ message: error.message });

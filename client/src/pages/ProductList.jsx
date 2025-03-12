@@ -19,7 +19,13 @@ const ProductList = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('/api/products/list');
+                const response = await axios.get('/api/products/list', {
+                    headers: {
+                        'Cache-Control': 'no-cache', // Disable caching
+                        'Pragma': 'no-cache',
+                        'Expires': '0',
+                    },
+                });
                 setProducts(response.data);
                 setFilteredProducts(response.data); // Initialize filtered products with all products
             } catch (error) {
